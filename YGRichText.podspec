@@ -10,7 +10,7 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/DaverZhou"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author       = { "DaverZhou" => "daverzhou98@gmail.com" }
-  spec.source       = { :git => "git@github.com:DaverZhou/YGRichText.git", :tag => "#{spec.version}" }
+  spec.source       = { :git => "https://github.com/DaverZhou/YGRichText.git", :tag => "#{spec.version}" }
 
   spec.ios.deployment_target = "9.0"
   spec.osx.deployment_target = "10.7"

@@ -34,7 +34,7 @@ pod 'YGRichText'
    make.textAlignment(NSTextAlignmentCenter).allRange();
    make.lineSpacing(10).allRange();
 ```
-最后将只有最后的`lineSpacing`效果，覆盖了上方`textAlignment`的效果，如果需要同时设置`lineSpacing、textAlignment、lineBreakMode`,需要在同一个range中调用：
+最后将只有写在最后的代码生效，例如上面的只有`lineSpacing`生效，覆盖了上方`textAlignment`的效果，如果需要同时设置`lineSpacing、textAlignment、lineBreakMode`,需要在同一个range中调用：
 ```
  make.textAlignment(NSTextAlignmentCenter).lineSpacing(10).lineBreakMode(NSLineBreakByCharWrapping).allRange();
 ```

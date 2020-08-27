@@ -15,8 +15,8 @@ Pod::Spec.new do |spec|
   spec.ios.deployment_target = "9.0"
   spec.osx.deployment_target = "10.7"
 
-  spec.source_files        = "Classes/YGRichText/**/*"
-  spec.public_header_files = "Classes/YGRichText/**/*.h"
+  spec.source_files        = "YGRichText/**/*"
+  spec.public_header_files = "YGRichText/**/*.h"
 
   spec.requires_arc = true
   

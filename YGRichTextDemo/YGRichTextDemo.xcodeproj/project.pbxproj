@@ -15,10 +15,8 @@
 		458698AC24F7525300AE43EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 458698AA24F7525300AE43EC /* LaunchScreen.storyboard */; };
 		458698AF24F7525300AE43EC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 458698AE24F7525300AE43EC /* main.m */; };
 		458698C824F78AD300AE43EC /* RichViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458698C724F78AD300AE43EC /* RichViewController.m */; };
-		458698DA24F78F9F00AE43EC /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 458698D224F78F9F00AE43EC /* LICENSE */; };
-		458698DB24F78F9F00AE43EC /* NSString+YGAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 458698D424F78F9F00AE43EC /* NSString+YGAttributed.m */; };
-		458698DC24F78F9F00AE43EC /* YGAttributedMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 458698D524F78F9F00AE43EC /* YGAttributedMaker.m */; };
-		458698DD24F78F9F00AE43EC /* YGRichText.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 458698D924F78F9F00AE43EC /* YGRichText.podspec */; };
+		458698E424F7932D00AE43EC /* NSString+YGAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 458698DF24F7932D00AE43EC /* NSString+YGAttributed.m */; };
+		458698E524F7932D00AE43EC /* YGAttributedMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 458698E024F7932D00AE43EC /* YGAttributedMaker.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,13 +34,11 @@
 		458698AE24F7525300AE43EC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		458698C624F78AD300AE43EC /* RichViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RichViewController.h; sourceTree = "<group>"; };
 		458698C724F78AD300AE43EC /* RichViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RichViewController.m; sourceTree = "<group>"; };
-		458698D224F78F9F00AE43EC /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		458698D424F78F9F00AE43EC /* NSString+YGAttributed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YGAttributed.m"; sourceTree = "<group>"; };
-		458698D524F78F9F00AE43EC /* YGAttributedMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAttributedMaker.m; sourceTree = "<group>"; };
-		458698D624F78F9F00AE43EC /* YGRichText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGRichText.h; sourceTree = "<group>"; };
-		458698D724F78F9F00AE43EC /* YGAttributedMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAttributedMaker.h; sourceTree = "<group>"; };
-		458698D824F78F9F00AE43EC /* NSString+YGAttributed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YGAttributed.h"; sourceTree = "<group>"; };
-		458698D924F78F9F00AE43EC /* YGRichText.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = YGRichText.podspec; sourceTree = "<group>"; };
+		458698DF24F7932D00AE43EC /* NSString+YGAttributed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YGAttributed.m"; sourceTree = "<group>"; };
+		458698E024F7932D00AE43EC /* YGAttributedMaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YGAttributedMaker.m; sourceTree = "<group>"; };
+		458698E124F7932D00AE43EC /* YGRichText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGRichText.h; sourceTree = "<group>"; };
+		458698E224F7932D00AE43EC /* YGAttributedMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAttributedMaker.h; sourceTree = "<group>"; };
+		458698E324F7932D00AE43EC /* NSString+YGAttributed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YGAttributed.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +71,7 @@
 		4586989B24F7524E00AE43EC /* YGRichTextDemo */ = {
 			isa = PBXGroup;
 			children = (
-				458698D124F78F9F00AE43EC /* Classes */,
+				458698DE24F7932D00AE43EC /* YGRichText */,
 				4586989C24F7524E00AE43EC /* AppDelegate.h */,
 				4586989D24F7524E00AE43EC /* AppDelegate.m */,
 				4586989F24F7524E00AE43EC /* SceneDelegate.h */,
@@ -93,27 +89,17 @@
 			path = YGRichTextDemo;
 			sourceTree = "<group>";
 		};
-		458698D124F78F9F00AE43EC /* Classes */ = {
+		458698DE24F7932D00AE43EC /* YGRichText */ = {
 			isa = PBXGroup;
 			children = (
-				458698D224F78F9F00AE43EC /* LICENSE */,
-				458698D324F78F9F00AE43EC /* YGRichText */,
-				458698D924F78F9F00AE43EC /* YGRichText.podspec */,
+				458698DF24F7932D00AE43EC /* NSString+YGAttributed.m */,
+				458698E024F7932D00AE43EC /* YGAttributedMaker.m */,
+				458698E124F7932D00AE43EC /* YGRichText.h */,
+				458698E224F7932D00AE43EC /* YGAttributedMaker.h */,
+				458698E324F7932D00AE43EC /* NSString+YGAttributed.h */,
 			);
-			name = Classes;
-			path = ../../Classes;
-			sourceTree = "<group>";
-		};
-		458698D324F78F9F00AE43EC /* YGRichText */ = {
-			isa = PBXGroup;
-			children = (
-				458698D424F78F9F00AE43EC /* NSString+YGAttributed.m */,
-				458698D524F78F9F00AE43EC /* YGAttributedMaker.m */,
-				458698D624F78F9F00AE43EC /* YGRichText.h */,
-				458698D724F78F9F00AE43EC /* YGAttributedMaker.h */,
-				458698D824F78F9F00AE43EC /* NSString+YGAttributed.h */,
-			);
-			path = YGRichText;
+			name = YGRichText;
+			path = ../../YGRichText;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,9 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				458698AC24F7525300AE43EC /* LaunchScreen.storyboard in Resources */,
-				458698DD24F78F9F00AE43EC /* YGRichText.podspec in Resources */,
 				458698A924F7525300AE43EC /* Assets.xcassets in Resources */,
-				458698DA24F78F9F00AE43EC /* LICENSE in Resources */,
 				458698A724F7524E00AE43EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -189,10 +173,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				458698A424F7524E00AE43EC /* ViewController.m in Sources */,
-				458698DC24F78F9F00AE43EC /* YGAttributedMaker.m in Sources */,
+				458698E524F7932D00AE43EC /* YGAttributedMaker.m in Sources */,
 				4586989E24F7524E00AE43EC /* AppDelegate.m in Sources */,
 				458698AF24F7525300AE43EC /* main.m in Sources */,
-				458698DB24F78F9F00AE43EC /* NSString+YGAttributed.m in Sources */,
+				458698E424F7932D00AE43EC /* NSString+YGAttributed.m in Sources */,
 				458698C824F78AD300AE43EC /* RichViewController.m in Sources */,
 				458698A124F7524E00AE43EC /* SceneDelegate.m in Sources */,
 			);

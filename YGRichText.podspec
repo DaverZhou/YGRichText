@@ -13,7 +13,6 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/DaverZhou/YGRichText.git", :tag => "#{spec.version}" }
 
   spec.ios.deployment_target = "9.0"
-  spec.osx.deployment_target = "10.7"
 
   spec.source_files        = "YGRichText/**/*"
   spec.public_header_files = "YGRichText/**/*.h"

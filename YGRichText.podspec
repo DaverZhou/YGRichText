@@ -4,7 +4,7 @@ Pod::Spec.new do |spec|
   spec.summary      = "rich Text"
 
   spec.description  = <<-DESC
-    Objective-C chain set rich text!
+    链式设置富文本
                    DESC
                    
   spec.homepage     = "https://github.com/DaverZhou"

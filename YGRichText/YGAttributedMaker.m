@@ -52,7 +52,7 @@
 #pragma mark Public
 /// 字体
 - (YGAttributedMaker *(^)(UIFont *value))font {
-    return ^(UIFont *value) {
+    return ^id(UIFont *value) {
         [self addAttributedWithKey:NSFontAttributeName value:value];
         return self;
     };
@@ -60,7 +60,7 @@
 
 /// 斜体
 - (YGAttributedMaker *(^)(CGFloat value))italic {
-    return ^(CGFloat value) {
+    return ^id(CGFloat value) {
         [self addAttributedWithKey:NSObliquenessAttributeName value:@(value)];
         return self;
     };
@@ -68,7 +68,7 @@
 
 /// 设置文字颜色
 - (YGAttributedMaker *(^)(UIColor *value))foregroundColor {
-    return ^(UIColor *value) {
+    return ^id(UIColor *value) {
         [self addAttributedWithKey:NSForegroundColorAttributeName value:value];
         return self;
     };
@@ -76,7 +76,7 @@
 
 /// 设置背景颜色
 - (YGAttributedMaker *(^)(UIColor *value))backgroundColor {
-    return ^(UIColor *value) {
+    return ^id(UIColor *value) {
         [self addAttributedWithKey:NSBackgroundColorAttributeName value:value];
         return self;
     };
@@ -84,7 +84,7 @@
 
 /// 删除线高度
 - (YGAttributedMaker *(^)(NSInteger value))strikethroughStyle {
-    return ^(NSInteger value) {
+    return ^id(NSInteger value) {
         [self addAttributedWithKey:NSStrikethroughStyleAttributeName value:@(value)];
         return self;
     };
@@ -92,7 +92,7 @@
 
 /// 删除线颜色
 - (YGAttributedMaker *(^)(UIColor *value))strikethroughColor {
-    return ^(UIColor *value) {
+    return ^id(UIColor *value) {
         [self addAttributedWithKey:NSStrikethroughColorAttributeName value:value];
         return self;
     };
@@ -100,7 +100,7 @@
 
 /// 下滑线粗度
 - (YGAttributedMaker *(^)(NSInteger value))underlineStyle {
-    return ^(NSInteger value) {
+    return ^id(NSInteger value) {
         [self addAttributedWithKey:NSUnderlineStyleAttributeName value:@(value)];
         return self;
     };
@@ -108,7 +108,7 @@
 
 /// 下滑线颜色
 - (YGAttributedMaker *(^)(UIColor *value))underlineColor {
-    return ^(UIColor *value) {
+    return ^id(UIColor *value) {
         [self addAttributedWithKey:NSUnderlineColorAttributeName value:value];
         return self;
     };
@@ -116,7 +116,7 @@
 
 /// 字体描边宽度
 - (YGAttributedMaker *(^)(CGFloat value))strokeWidth {
-    return ^(CGFloat value) {
+    return ^id(CGFloat value) {
         [self addAttributedWithKey:NSStrokeWidthAttributeName value:@(value)];
         return self;
     };
@@ -124,7 +124,7 @@
 
 /// 字体描边颜
 - (YGAttributedMaker *(^)(UIColor *value))strokeColor {
-    return ^(UIColor *value) {
+    return ^id(UIColor *value) {
         [self addAttributedWithKey:NSStrokeColorAttributeName value:value];
         return self;
     };
@@ -132,7 +132,7 @@
 
 /// 字体阴影
 - (YGAttributedMaker *(^)(NSShadow *value))shadow {
-    return ^(NSShadow *value) {
+    return ^id(NSShadow *value) {
         [self addAttributedWithKey:NSShadowAttributeName value:value];
         return self;
     };
@@ -140,7 +140,7 @@
 
 /// 字间距
 - (YGAttributedMaker *(^)(CGFloat value))kern {
-    return ^(CGFloat value) {
+    return ^id(CGFloat value) {
         [self addAttributedWithKey:NSKernAttributeName value:@(value)];
         return self;
     };
@@ -148,7 +148,7 @@
 
 /// 行间距
 - (YGAttributedMaker *(^)(CGFloat value))lineSpacing {
-    return ^(CGFloat value) {
+    return ^id(CGFloat value) {
         if (!self.style) {
             self.style = [NSMutableParagraphStyle new];
         }
@@ -160,7 +160,7 @@
 
 /// 对齐方式
 - (YGAttributedMaker *(^)(NSTextAlignment value))textAlignment {
-    return ^(NSTextAlignment value) {
+    return ^id(NSTextAlignment value) {
         if (!self.style) {
             self.style = [NSMutableParagraphStyle new];
         }
@@ -172,7 +172,7 @@
 
 /// 字符截断类型
 - (YGAttributedMaker *(^)(NSLineBreakMode value))lineBreakMode {
-    return ^(NSLineBreakMode value) {
+    return ^id(NSLineBreakMode value) {
         if (!self.style) {
             self.style = [NSMutableParagraphStyle new];
         }
@@ -184,7 +184,7 @@
 
 /// 设置URL跳转 UITextView才有效，UILabel和UITextField里面无效
 - (YGAttributedMaker *(^)(NSString *value))link {
-    return ^(NSString *value) {
+    return ^id(NSString *value) {
         [self addAttributedWithKey:NSLinkAttributeName value:[NSURL URLWithString:value]];
         return self;
     };
@@ -208,9 +208,11 @@
 
 /// 拼接字符串
 - (YGAttributedMaker *(^)(NSString *string))appendString {
-    return ^(NSString *string) {
-        [self.strings addObject:string];
-        [self.attributedStrings addObject:[[NSMutableAttributedString alloc] initWithString:string]];
+    return ^id(NSString *string) {
+        if (string) {
+            [self.strings addObject:string];
+            [self.attributedStrings addObject:[[NSMutableAttributedString alloc] initWithString:string]];
+        }
         return self;
     };
 }
@@ -231,6 +233,14 @@
     [self.attributedStrings removeAllObjects];
     [self.attributedStrings addObject:attributedString];
     return self;
+}
+
+/// 区间
+- (YGAttributedMaker *(^)(NSUInteger loc, NSUInteger len))yg_inRange {
+    return ^id(NSUInteger loc, NSUInteger len) {
+        [self compositionToAttributedWithRange:NSMakeRange(loc, len)];
+        return self;
+    };
 }
 
 /// 区间

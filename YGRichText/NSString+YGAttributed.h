@@ -12,7 +12,7 @@
 
 @interface NSString (YGAttributed)
 
-/// 富文本
+/// Rich text
 /// @param block YGAttributedMaker
 - (NSMutableAttributedString *)yg_makeAttributed:(void(^)(YGAttributedMaker *make))block;
 

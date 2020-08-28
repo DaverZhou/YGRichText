@@ -92,11 +92,11 @@
 		458698DE24F7932D00AE43EC /* YGRichText */ = {
 			isa = PBXGroup;
 			children = (
+				458698E324F7932D00AE43EC /* NSString+YGAttributed.h */,
 				458698DF24F7932D00AE43EC /* NSString+YGAttributed.m */,
+				458698E224F7932D00AE43EC /* YGAttributedMaker.h */,
 				458698E024F7932D00AE43EC /* YGAttributedMaker.m */,
 				458698E124F7932D00AE43EC /* YGRichText.h */,
-				458698E224F7932D00AE43EC /* YGAttributedMaker.h */,
-				458698E324F7932D00AE43EC /* NSString+YGAttributed.h */,
 			);
 			name = YGRichText;
 			path = ../../YGRichText;

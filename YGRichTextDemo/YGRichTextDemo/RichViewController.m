@@ -23,7 +23,8 @@
     
     UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(20, 50, self.view.bounds.size.width - 100, 300)];
     [self.view addSubview:textView];
-    textView.attributedText = [@"hello world, this is rich text test~" yg_makeAttributed:^(YGAttributedMaker *make) {
+
+    textView.attributedText = [self.string yg_makeAttributed:^(YGAttributedMaker *make) {
         make.font([UIFont systemFontOfSize:17]).allRange();
         make.foregroundColor(UIColor.redColor).allRange();
         make.strikethroughStyle(4).allRange();

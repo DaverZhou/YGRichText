@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 字体
 - (YGAttributedMaker *(^)(UIFont *value))font;
 
-/// 设置斜体
+/// 斜体
 - (YGAttributedMaker *(^)(CGFloat value))italic;
 
 /// 文字颜色
@@ -78,6 +78,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (YGAttributedMaker *)mergeStrings;
 
 #pragma mark 区间
+/// 区间
+- (YGAttributedMaker *(^)(NSUInteger loc, NSUInteger len))yg_inRange;
 /// 区间
 - (YGAttributedMaker *(^)(NSRange range))inRange;
 /// 区间

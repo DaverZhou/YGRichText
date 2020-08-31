@@ -270,6 +270,7 @@
 
 - (void)compositionToAttributedWithRange:(NSRange)range {
     NSMutableAttributedString *attributedString = self.attributedStrings.lastObject;
+    NSAssert((range.location + range.length) <= attributedString.string.length, @"YGRichText set range can‘t beyond the string‘s length, you should check range!");
     [self.attributeds enumerateKeysAndObjectsUsingBlock:^(NSAttributedStringKey  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [attributedString addAttribute:key value:obj range:range];
     }];

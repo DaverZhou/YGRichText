@@ -28,6 +28,15 @@ pod 'YGRichText'
 ```
 **注意**：每一个属性设置结束后请以`allRange()`或者`inRange()`结束，方可生效！！！
 
+插入图片
+```
+    self.vipLabel.attributedText = [@" 会员" yg_makeAttributed:^(YGAttributedMaker *make) {
+        make.insertImage([UIImage imageNamed:@"mine_vip"], CGRectMake(0, -1, 12, 10), 0);
+    }];
+```
+因为图文的富文本，是直接调用`insertAttributedString:atIndex:`的形式，可归纳为富文本拼接，无需调用`allRange()`或者`inRange()`即可生效。
+
+
 ### 说明
 可能存在的问题，同个range分开设置`lineSpacing、textAlignment、lineBreakMode`，如下：
 ```

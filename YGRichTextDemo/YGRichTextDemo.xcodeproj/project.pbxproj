@@ -17,6 +17,8 @@
 		458698C824F78AD300AE43EC /* RichViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 458698C724F78AD300AE43EC /* RichViewController.m */; };
 		458698E424F7932D00AE43EC /* NSString+YGAttributed.m in Sources */ = {isa = PBXBuildFile; fileRef = 458698DF24F7932D00AE43EC /* NSString+YGAttributed.m */; };
 		458698E524F7932D00AE43EC /* YGAttributedMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 458698E024F7932D00AE43EC /* YGAttributedMaker.m */; };
+		45B816CA2653A69600D17008 /* NSAttributedString+YG.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B816C92653A69600D17008 /* NSAttributedString+YG.m */; };
+		45B816D82653AC0F00D17008 /* NSString+YGRange.m in Sources */ = {isa = PBXBuildFile; fileRef = 45B816D72653AC0F00D17008 /* NSString+YGRange.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,10 @@
 		458698E124F7932D00AE43EC /* YGRichText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGRichText.h; sourceTree = "<group>"; };
 		458698E224F7932D00AE43EC /* YGAttributedMaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YGAttributedMaker.h; sourceTree = "<group>"; };
 		458698E324F7932D00AE43EC /* NSString+YGAttributed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YGAttributed.h"; sourceTree = "<group>"; };
+		45B816C82653A69600D17008 /* NSAttributedString+YG.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+YG.h"; sourceTree = "<group>"; };
+		45B816C92653A69600D17008 /* NSAttributedString+YG.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+YG.m"; sourceTree = "<group>"; };
+		45B816D62653AC0F00D17008 /* NSString+YGRange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+YGRange.h"; sourceTree = "<group>"; };
+		45B816D72653AC0F00D17008 /* NSString+YGRange.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+YGRange.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,8 +98,12 @@
 		458698DE24F7932D00AE43EC /* YGRichText */ = {
 			isa = PBXGroup;
 			children = (
+				45B816C82653A69600D17008 /* NSAttributedString+YG.h */,
+				45B816C92653A69600D17008 /* NSAttributedString+YG.m */,
 				458698E324F7932D00AE43EC /* NSString+YGAttributed.h */,
 				458698DF24F7932D00AE43EC /* NSString+YGAttributed.m */,
+				45B816D62653AC0F00D17008 /* NSString+YGRange.h */,
+				45B816D72653AC0F00D17008 /* NSString+YGRange.m */,
 				458698E224F7932D00AE43EC /* YGAttributedMaker.h */,
 				458698E024F7932D00AE43EC /* YGAttributedMaker.m */,
 				458698E124F7932D00AE43EC /* YGRichText.h */,
@@ -173,10 +183,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				458698A424F7524E00AE43EC /* ViewController.m in Sources */,
+				45B816D82653AC0F00D17008 /* NSString+YGRange.m in Sources */,
 				458698E524F7932D00AE43EC /* YGAttributedMaker.m in Sources */,
 				4586989E24F7524E00AE43EC /* AppDelegate.m in Sources */,
 				458698AF24F7525300AE43EC /* main.m in Sources */,
 				458698E424F7932D00AE43EC /* NSString+YGAttributed.m in Sources */,
+				45B816CA2653A69600D17008 /* NSAttributedString+YG.m in Sources */,
 				458698C824F78AD300AE43EC /* RichViewController.m in Sources */,
 				458698A124F7524E00AE43EC /* SceneDelegate.m in Sources */,
 			);

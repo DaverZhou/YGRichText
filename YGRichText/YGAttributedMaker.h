@@ -80,8 +80,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark 区间
 /// 区间
 - (YGAttributedMaker *(^)(NSUInteger loc, NSUInteger len))yg_inRange;
+
 /// 区间
 - (YGAttributedMaker *(^)(NSRange range))inRange;
+
 /// 区间
 - (YGAttributedMaker *(^)(void))allRange;
 

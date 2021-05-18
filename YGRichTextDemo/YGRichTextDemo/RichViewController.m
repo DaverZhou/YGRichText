@@ -18,21 +18,48 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setBackgroundColor:UIColor.whiteColor];
 
-    self.string = @"need append string";
-    
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(20, 50, self.view.bounds.size.width - 100, 300)];
+    self.string = @"How to use YGRichText, let it show attributed text in view. ";
+        
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(20, 100, self.view.bounds.size.width - 40, 300)];
+    [textView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [textView setEditable:NO];
     [self.view addSubview:textView];
 
     textView.attributedText = [self.string yg_makeAttributed:^(YGAttributedMaker *make) {
+        // 字体
         make.font([UIFont systemFontOfSize:17]).allRange();
+        // 文字颜色
         make.foregroundColor(UIColor.redColor).allRange();
-        make.strikethroughStyle(4).allRange();
+        // 删除线
+        make.strikethroughStyle(4).yg_inRange(0, 3);
+        // 下划线
         make.underlineStyle(4).underlineColor(UIColor.blueColor).allRange();
-        make.strokeWidth(4).strokeColor(UIColor.blackColor).allRange();
+        // 字体描边
+        make.strokeWidth(4).strokeColor(UIColor.blackColor).yg_inRange(3, 7);
+        // 对齐方式
         make.textAlignment(NSTextAlignmentCenter).kern(10).lineSpacing(10).lineBreakMode(NSLineBreakByCharWrapping).allRange();
-        make.appendString(self.string);
+        // 插入图片
+        make.insertImage([UIImage imageNamed:@"image name"], CGRectMake(0, -2, 15, 15), 0).allRange();
+        
+        // 获取关键字区间
+        NSArray *rangs = [self.string yg_getRangesInStringWithKeyworld:@"YGRichText"];
+        [rangs enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            NSRange range = [obj yg_getRangeFromString];
+            // 插入图片，则loc 加 1
+            range = NSMakeRange(range.location + 1, range.length);
+            make.foregroundColor([UIColor blackColor]).kern(0).inRange(range);
+        }];
+        
+        // 拼接字符串
+        make.appendString(@"need append string");
+
     }];
+    
+    // 根据富文本获取高度
+    CGFloat maxHeight = [textView.attributedText yg_heightByMaxWidth:self.view.bounds.size.width - 40];
+    textView.frame = CGRectMake(20, 100, self.view.bounds.size.width - 40, maxHeight);
     
     UIButton *backButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [backButton setFrame:CGRectMake(20, 20, 50, 30)];

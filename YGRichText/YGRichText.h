@@ -10,7 +10,9 @@
 #define YGRichText_h
 
 #import "NSString+YGAttributed.h"
+#import "NSAttributedString+YG.h"
 #import "YGAttributedMaker.h"
+#import "NSString+YGRange.h"
 
 
 #endif /* YGRichText_h */

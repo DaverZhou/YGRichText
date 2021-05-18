@@ -1,11 +1,17 @@
 Pod::Spec.new do |spec|
   spec.name         = "YGRichText"
-  spec.version      = "1.0.3"
+  spec.version      = "1.1.0"
   spec.summary      = "链式设置富文本"
 
   spec.description  = <<-DESC
-    基于链式编程，点语法的简易调用设置富文本，达到自由灵活搭配。
+    YGRichText：
+    1、基于链式编程，点语法的简易调用设置富文本，达到自由灵活搭配。
+    2、根据关键词计算获取字符串中的所有 range
+    3、根据富文本获取文本大小
+    
+    支持：
     pod 'YGRichText'
+    
                    DESC
                    
   spec.homepage     = "https://github.com/DaverZhou"

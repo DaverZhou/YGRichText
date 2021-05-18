@@ -16,5 +16,6 @@
 /// @param block YGAttributedMaker
 - (NSMutableAttributedString *)yg_makeAttributed:(void(^)(YGAttributedMaker *make))block;
 
+
 @end
 

@@ -2,6 +2,8 @@
 链式设置富文本！
 可以自由组合成对应的富文本效果，省去多个方法的定义。
 
+[Swift 版本](https://github.com/DaverZhou/YGRichText_Swift/tree/master)
+
 ### 导入
 支持pod 导入
 ```

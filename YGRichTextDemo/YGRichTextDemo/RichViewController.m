@@ -21,9 +21,10 @@
     [self.view setBackgroundColor:UIColor.whiteColor];
 
     self.string = @"How to use YGRichText, let it show attributed text in view. ";
-        
-    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(20, 100, self.view.bounds.size.width - 40, 300)];
+            
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(20, 100, 300, 300)];
     [textView setContentInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+    [textView setFont:[UIFont systemFontOfSize:15]];
     [textView setEditable:NO];
     [self.view addSubview:textView];
 
@@ -67,6 +68,19 @@
     [backButton setTitle:@"返回" forState:0];
     [backButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:backButton];
+    
+    
+    NSString *titleString = @"中国人民aasjdklfajl啊再擦发热器要投入沪电股份不是大方";
+    
+    int num = [titleString yg_getCharacterNumWithMaxWidth:300 font:[UIFont systemFontOfSize:15]];
+    NSLog(@"yg_getCharacterNumWithMaxWidth:%d", num);
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 500, 300, 20)];
+    [titleLabel setBackgroundColor:UIColor.redColor];
+    [titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [titleLabel setTextColor:[UIColor blackColor]];
+    [titleLabel setText:[titleString substringToIndex:num]];
+    [self.view addSubview:titleLabel];
+
 }
 
 - (void)backAction {

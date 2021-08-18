@@ -41,4 +41,24 @@
     return NSMakeRange(loc.integerValue, len.integerValue);
 }
 
+- (int)yg_getCharacterNumWithMaxWidth:(CGFloat)maxWidth font:(UIFont *)font {
+    if (!self) {
+        return 0;
+    }
+    CGFloat width = 0;
+    int result = (int)self.length;
+    NSDictionary *dic = @{NSFontAttributeName:font};
+    for (int i = 0; i < self.length; i++) {
+        NSString *character = [self substringWithRange:NSMakeRange(i, 1)];
+        CGFloat characterWidth = [character sizeWithAttributes:dic].width;
+        width += characterWidth;
+        if (width > maxWidth) {
+            result = i;
+            break;
+        }
+    }
+    return result;
+}
+
+
 @end

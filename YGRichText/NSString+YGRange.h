@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,13 @@ NS_ASSUME_NONNULL_BEGIN
 /// 根据 "loc,len" 获取range
 /// Gets the range from a rang string. rang string: "loc,len"
 - (NSRange)yg_getRangeFromString;
+
+
+/// 根据固定长度计算可显示字符串中多少个字
+/// Calculates how many words in a string can be displayed based on a fixed length
+- (int)yg_getCharacterNumWithMaxWidth:(CGFloat)maxWidth font:(UIFont *)font;
+
+
 
 
 @end

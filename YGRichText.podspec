@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "YGRichText"
-  spec.version      = "1.2.0"
+  spec.version      = "1.3.0"
   spec.summary      = "链式设置富文本"
 
   spec.description  = <<-DESC
@@ -12,6 +12,7 @@ Pod::Spec.new do |spec|
     
     支持：
     pod 'YGRichText'
+    xcode 自带 Package 导入
     
                    DESC
                    

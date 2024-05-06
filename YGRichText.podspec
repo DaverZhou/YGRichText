@@ -21,7 +21,7 @@ Pod::Spec.new do |spec|
   spec.author       = { "DaverZhou" => "daverzhou98@gmail.com" }
   spec.source       = { :git => "https://github.com/DaverZhou/YGRichText.git", :tag => "#{spec.version}" }
 
-  spec.ios.deployment_target = "10.0"
+  spec.ios.deployment_target = "12.0"
 
   spec.source_files        = "YGRichText/**/*"
   spec.public_header_files = "YGRichText/**/*.h"

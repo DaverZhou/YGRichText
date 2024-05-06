@@ -38,11 +38,13 @@
         // 下划线
         make.underlineStyle(4).underlineColor(UIColor.blueColor).allRange();
         // 字体描边
-        make.strokeWidth(4).strokeColor(UIColor.blackColor).yg_inRange(3, 7);
+        make.strokeWidth(4).strokeColor(UIColor.blackColor).ofString(@"YGRichText");
         // 对齐方式
         make.textAlignment(NSTextAlignmentCenter).kern(10).lineSpacing(10).lineBreakMode(NSLineBreakByCharWrapping).allRange();
         // 插入图片
-        make.insertImage([UIImage imageNamed:@"image name"], CGRectMake(0, -2, 15, 15), 0).allRange();
+        make.insertLeadImage([UIImage imageNamed:@"image name"], CGRectMake(0, -2, 15, 15));
+        // 尾部插入图片
+        make.insertTrailImage([UIImage imageNamed:@"image name"], CGRectMake(0, -2, 15, 15));
         
         // 获取关键字区间
         NSArray *rangs = [self.string yg_getRangesInStringWithKeyworld:@"YGRichText"];

@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// 富文本
 - (NSMutableAttributedString *)result;
 
+
 #pragma mark 链式调用后必须调用区间
 /// 字体
 - (YGAttributedMaker *(^)(UIFont *value))font;
@@ -67,8 +68,17 @@ NS_ASSUME_NONNULL_BEGIN
 /// 设置URL跳转 UITextView才有效，UILabel和UITextField里面无效
 - (YGAttributedMaker *(^)(NSString *value))link;
 
+
+#pragma mark Insert Image
+/// 起始插入图片(图片，尺寸，位置)
+- (YGAttributedMaker *(^)(UIImage *image, CGRect bounds))insertLeadImage;
+
+/// 尾部插入图片(图片，尺寸，位置)
+- (YGAttributedMaker *(^)(UIImage *image, CGRect bounds))insertTrailImage;
+
 /// 插入图片(图片，尺寸，位置)
 - (YGAttributedMaker *(^)(UIImage *image, CGRect bounds, NSInteger index))insertImage;
+
 
 #pragma mark append string
 /// 拼接string
@@ -77,15 +87,20 @@ NS_ASSUME_NONNULL_BEGIN
 /// 合并
 - (YGAttributedMaker *)mergeStrings;
 
+
 #pragma mark 区间
 /// 区间
 - (YGAttributedMaker *(^)(NSUInteger loc, NSUInteger len))yg_inRange;
+
+/// 区间
+- (YGAttributedMaker *(^)(NSString *value))ofString;
 
 /// 区间
 - (YGAttributedMaker *(^)(NSRange range))inRange;
 
 /// 区间
 - (YGAttributedMaker *(^)(void))allRange;
+
 
 @end
 

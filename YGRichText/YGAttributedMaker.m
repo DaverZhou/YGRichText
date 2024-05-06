@@ -190,6 +190,38 @@
     };
 }
 
+#pragma mark Insert Image
+/// 起始插入图片(图片，尺寸，位置)
+- (YGAttributedMaker *(^)(UIImage *image, CGRect bounds))insertLeadImage {
+    return ^id(UIImage *image, CGRect bounds) {
+        // 图标
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+        textAttachment.image = image;
+        textAttachment.bounds = bounds;
+        //
+        NSAttributedString *tempAttributed = [NSAttributedString attributedStringWithAttachment:textAttachment];
+        NSMutableAttributedString *attributedString = self.attributedStrings.lastObject;
+        [attributedString insertAttributedString:tempAttributed atIndex:0];
+
+        return self;
+    };
+}
+
+/// 尾部插入图片(图片，尺寸，位置)
+- (YGAttributedMaker *(^)(UIImage *image, CGRect bounds))insertTrailImage {
+    return ^id(UIImage *image, CGRect bounds) {
+        // 图标
+        NSTextAttachment *textAttachment = [[NSTextAttachment alloc] init];
+        textAttachment.image = image;
+        textAttachment.bounds = bounds;
+        //
+        NSMutableAttributedString *attributedString = self.attributedStrings.lastObject;
+        NSAttributedString *tempAttributed = [NSAttributedString attributedStringWithAttachment:textAttachment];
+        [attributedString appendAttributedString:tempAttributed];
+        return self;
+    };
+}
+
 /// 插入图片
 - (YGAttributedMaker *(^)(UIImage *image, CGRect bounds, NSInteger index))insertImage {
     return ^id(UIImage *image, CGRect bounds, NSInteger index) {
@@ -206,6 +238,7 @@
     };
 }
 
+#pragma mark append string
 /// 拼接字符串
 - (YGAttributedMaker *(^)(NSString *string))appendString {
     return ^id(NSString *string) {
@@ -235,10 +268,23 @@
     return self;
 }
 
+#pragma mark Range
 /// 区间
 - (YGAttributedMaker *(^)(NSUInteger loc, NSUInteger len))yg_inRange {
     return ^id(NSUInteger loc, NSUInteger len) {
         [self compositionToAttributedWithRange:NSMakeRange(loc, len)];
+        return self;
+    };
+}
+
+/// 区间
+- (YGAttributedMaker *(^)(NSString *value))ofString {
+    return ^id(NSString *value) {
+        NSString *string = self.strings.lastObject;
+        NSRange range = [string rangeOfString:value];
+        if (range.location != NSNotFound) {
+            [self compositionToAttributedWithRange:range];
+        }
         return self;
     };
 }
@@ -270,7 +316,7 @@
 
 - (void)compositionToAttributedWithRange:(NSRange)range {
     NSMutableAttributedString *attributedString = self.attributedStrings.lastObject;
-    NSAssert((range.location + range.length) <= attributedString.string.length, @"YGRichText set range can‘t beyond the string‘s length, you should check range!");
+    NSAssert(NSMaxRange(range) <= attributedString.string.length, @"YGRichText set range can‘t beyond the string‘s length, you should check range!");
     [self.attributeds enumerateKeysAndObjectsUsingBlock:^(NSAttributedStringKey  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [attributedString addAttribute:key value:obj range:range];
     }];

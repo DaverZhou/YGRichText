@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name         = "YGRichText"
-  spec.version      = "1.4.0"
+  spec.version      = "1.5.0"
   spec.summary      = "链式设置富文本"
 
   spec.description  = <<-DESC

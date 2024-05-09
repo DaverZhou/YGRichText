@@ -9,36 +9,25 @@
 #import "NSString+YGRange.h"
 
 @implementation NSString (YGRange)
-- (NSArray *)yg_getRangesInStringWithKeyworld:(NSString *)keyworld {
+- (NSArray<NSValue *> *)yg_getRangesInStringWithKeyworld:(NSString *)keyworld {
     if (!self || !keyworld) {
         return @[];
     }
-    NSMutableArray *ranges = [NSMutableArray array];
+    NSInteger textLength = keyworld.length;
+    NSMutableArray<NSValue *> *ranges = [NSMutableArray array];
     NSString *string = [self stringByAppendingString:keyworld];
-    for(int i = 0; i < self.length; i ++) {
-        NSString *tempString = [string substringWithRange:NSMakeRange(i, keyworld.length)];
-        if ([tempString isEqualToString:keyworld]) {
-            NSRange range = {i, keyworld.length};
-            if (range.length + range.location > self.length) {
-                range = NSMakeRange(i, self.length - i);
-                [ranges addObject:[NSString stringWithFormat:@"%d,%d", (int)range.location, (int)range.length]];
-                break;
-            } else {
-                [ranges addObject:[NSString stringWithFormat:@"%d,%d", (int)range.location, (int)range.length]];
+    for (int i = 0; i < self.length; i ++) {
+        if (i + textLength <= self.length) {
+            NSString *tempString = [string substringWithRange:NSMakeRange(i, textLength)];
+            if ([tempString isEqualToString:keyworld]) {
+                NSRange range = NSMakeRange(i, textLength);
+                [ranges addObject:[NSValue valueWithRange:range]];
             }
+        } else {
+            break;
         }
     }
     return ranges;
-}
-
-- (NSRange)yg_getRangeFromString {
-    if (!self) {
-        return NSMakeRange(0, 0);
-    }
-    NSArray *temp = [self componentsSeparatedByString:@","];
-    NSString *loc = temp.firstObject;
-    NSString *len = temp.lastObject;
-    return NSMakeRange(loc.integerValue, len.integerValue);
 }
 
 - (int)yg_getCharacterNumWithMaxWidth:(CGFloat)maxWidth font:(UIFont *)font {

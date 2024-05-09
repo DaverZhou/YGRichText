@@ -9,24 +9,21 @@
 #import "NSString+YGRange.h"
 
 @implementation NSString (YGRange)
-- (NSArray<NSValue *> *)yg_getRangesInStringWithKeyworld:(NSString *)keyworld {
-    if (!self || !keyworld) {
+- (NSArray *)yg_getRangesInStringWithKeyworld:(NSString *)keyworld {
+    if (!self || !keyworld || self.length == 0 || keyworld.length == 0) {
         return @[];
     }
-    NSInteger textLength = keyworld.length;
-    NSMutableArray<NSValue *> *ranges = [NSMutableArray array];
-    NSString *string = [self stringByAppendingString:keyworld];
-    for (int i = 0; i < self.length; i ++) {
-        if (i + textLength <= self.length) {
-            NSString *tempString = [string substringWithRange:NSMakeRange(i, textLength)];
-            if ([tempString isEqualToString:keyworld]) {
-                NSRange range = NSMakeRange(i, textLength);
-                [ranges addObject:[NSValue valueWithRange:range]];
-            }
-        } else {
-            break;
-        }
+    
+    NSMutableArray *ranges = [NSMutableArray array];
+    NSRange searchRange = NSMakeRange(0, self.length);
+    NSRange foundRange;
+    
+    while ((foundRange = [self rangeOfString:keyworld options:0 range:searchRange]).location != NSNotFound) {
+        [ranges addObject:[NSValue valueWithRange:foundRange]];
+        searchRange.location = NSMaxRange(foundRange);
+        searchRange.length = self.length - searchRange.location;
     }
+    
     return ranges;
 }
 
